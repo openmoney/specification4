@@ -65,7 +65,7 @@
 <p>The following is a minimal specification of the way in which any software supporting <em>open money</em> should operate.</p>
 
 <span class="added">
-<p><strong>Please note</strong>: Although originally designed to support user-centred ledger systems (LETSystem model), a sufficiently secure implementation of software conforming to this specification could be be used as the ledger system underpinning <u>any ledger-based</u> service, including mutual credit services (such as <em>LETSystems</em>), loan-providing services (such as credit unions and CDFIs), energy-accounting systems, time banks or any other conceivable system recording events associated with resources and agents.</p>
+<p><u>Note</u>: Although originally designed to support user-centred ledger systems (LETSystem model), a sufficiently secure implementation of software conforming to this specification could be be used as the ledger system underpinning <u>any ledger-based</u> service, including mutual credit services (such as <em>LETSystems</em>), loan-providing services (such as credit unions and CDFIs), energy-accounting systems, time banks or any other conceivable system recording events associated with resources and agents.</p>
 
 <p>The <em>openmoney</em> component is not intended to be complete and self-contained. Metasystemic components, whether technological, social or organizational, are required for any such tools to operate. Adaptive, resilient, co-evolving systems necessarily involve layers and appropriate extensions, with structure reviewed continually. The <em>openmoney</em> component is intended only to provide a recursively-nested ledge structure for REA accounting upon which much richer structures can be built.</p>
 </span>
@@ -90,12 +90,15 @@
 
 <h3>registries</h3>
 
-<p>A <em>registry</em> is an instance of any <em>openmoney</em>-compliant software with/in which a <em>user</em>'s <em>primary identity</em> can be registered.</p>
+<ul>
 
-<p>A <em>namespace</em> enclosing all <em>namespaces</em> associated directly with <em>users</em> with <em>primary identities</em> registered in that <em>registry</em> is its <em>registry namespace</em>.</p>
+<li><p>A <em>registry</em> is an instance of any <em>openmoney</em>-compliant software with/in which a <em>user</em>'s <em>primary identity</em> can be registered.</p></li>
 
-<p>A <em>user</em> may have any number of <em>secondary identities</em> in any permitted/accessible <em>namespace</em>, whether or not that lies within the same <em>registry namespace</em>.</p>
+<li><p>A <em>namespace</em> enclosing all <em>namespaces</em> associated directly with <em>users</em> with <em>primary identities</em> registered in that <em>registry</em> is its <em>registry namespace</em>.</p></li>
 
+<li><p>A <em>user</em> may have any number of <em>secondary identities</em> in any permitted/accessible <em>namespace</em>, whether or not that lies within the same <em>registry namespace</em>.</p></li>
+
+</ul>
 
 </span>
 
@@ -147,6 +150,8 @@
 
 <h3>namespaces</h3>
 
+<p>This section refers only to <em>namespaces</em> enclosed within the same <em>registry namespace</em>.</p>
+
 <ul>
 
 <li><p>Every <em>namespace</em> is managed (controlled) by a set of one or more <em>steward</em>(s).</p></li>
@@ -177,6 +182,33 @@ where both have the same <em>namespace name</em> at the start of the string but 
 </ul></p></li>
 
 </ul>
+
+<h3>extending namespaces</h3>
+
+<span class="added">
+
+<ul>
+
+<li>
+  <p>
+    Any <em>registry namespace</em> can be enclosed within any <em>namepace</em> embedded within another <em>registry namespace</em>.
+  </p>
+  <p>
+    For example, a <em>namspace</em> identified by the string <strong>newtown.powys.wales</strong> (where <strong>wales</strong> is the root <em>namespace</em> of the <em>registry</em> in which it is defined) can be embedded into an existing namespace <strong>uk.europe.earth</strong> in a separate <em>registry</em> (subject to the permission of the governing <em>stewards</em> of that <em>registry</em>, and only if the <em>terminal namespace</em> <strong>wales</strong> has not already been placed there from within a different <em>registry namespace</em>). In this case, the <em>namespace</em> <strong>newtown.powys.wales</strong> could now also be identified by the string <strong>newtown.powys.wales.uk.europe.earth</strong>.
+  </p>
+</li>
+
+<li>
+  <p>
+    A <em>namepace</em>
+  </p>
+</li>
+</ul>
+
+</span>
+
+
+
 
 <h3>currencies</h3>
 
