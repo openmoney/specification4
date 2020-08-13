@@ -64,7 +64,13 @@
 
 <p>The following is a minimal specification of the way in which any software supporting <em>open money</em> should operate.</p>
 
-<p>A <a href="https://github.com/openmoney/current-implementation/">testing/demonstration implementation</a> was written by <a href="https://github.com/deefactorial/">Dominique Legault</a>, who also wrote the <a href="https://paper.dropbox.com/doc/openmoney-specifications--A2ueQsb5n1iIn0oDC6yCjCFjAg-ZCwb9XOtbLSwZxrlnb5tR">original draft</a> of this specification in collaboration with Michael Linton.</p>
+<span class="added">
+<p>A sufficiently secure implementation of software conforming to this specification could be be used as the ledger system underpinning <u>any ledger-based</u> service, including mutual credit services (such as <em>LETSystems</em>) and loan-providing services (such as credit unions and CDFIs).</p>
+
+<p>The <em>openmoney</em> component is not intended to be complete and self-contained. Metasystemic components, whether technological, social or organizational, are required for any such tools to operate. Adaptive, resilient, co-evolving systems necessarily involve layers and appropriate extensions, with structure reviewed continually. The <em>openmoney</em> component is intended only to provide a recursively-nested ledge structure for REA accounting upon which much richer structures can be built.</p>
+</span>
+
+<br />
 
 <hr size="1">
 
@@ -77,6 +83,16 @@
 </ul>
 
 <hr size="1">
+
+<span class="added">
+<h3>registries</h3>
+
+<p>A <em>registry</em> is an instance of any <em>openmoney</em>-compliant software with/in which a <em>user</em> can register. A <em>namespace</em> enclosing all <em>namespaces</em> associated directly with <em>users</em> with primary identities registered in that <em>registry</em> is its <em>registry namespaces</em>.</p>
+
+
+
+
+</span>
 
 <h3>users</h3>
 
@@ -397,11 +413,19 @@ where both have the same <em>namespace name</em> at the start of the string but 
 
 <img src="img/nesting_4a_as_tree.png" class="align-left-middle" width="400" />
 
+<p style="clear:both"></p>
+
 <p>... making it easier to visualize the recursive nesting of <em>registry namespaces</em>.</p>
 
-<img src="img/nesting_trees_1.png" class="align-left-middle" width="701" />
+<img src="img/nesting_trees_1.png" class="align-left-middle" width="600" />
 
+<p>The coloured regions represent <em>registry namespaces</em>, which are equivalent to installations (not necessary implemented using the same technology, the only requirement being that they all conform to this very inclusive specification).</p>
 
+<p>A </p>
+
+<p></p>
+
+<p></p>
 
 <p style="clear:both"></p>
 
@@ -422,6 +446,7 @@ where both have the same <em>namespace name</em> at the start of the string but 
 
 <p>A name in a namespace that enables names to be allocated in a manner such that they are highly unlikely to collide with other names.  Examples of collision-resistant namespaces include: Domain Names, Object Identifiers (OIDs) as defined in the ITU-T X.660 and X.670 Recommendation series, and Universally Unique IDentifiers (UUIDs) [RFC4122].  When using an administratively delegated namespace, the definer of a name needs to take reasonable precautions to ensure they are in control of the portion of the namespace they use to define the name.</p></li>
 
+<span class="deleted">
 <li><h4>Stewards' names - unresolved problem</h4>
 
 <p>In general, a <em>namespace</em> collisions are avoided - e.g.<br />
@@ -441,12 +466,20 @@ However, upon registration (currently) all <em>openmoney</em> <em>stewards</em> 
 <p>There is, however, no need to retain such information. An identifier comprising a short <em>stewardname</em> <u>as preferred</u> along with the <em>namespace</em></p> generated automatically from location details could entered at the time of registration.</p>
 
 <p>Alternatively, a completely random but unique initial <em>namespace</em> could be generated as a starting point for the new <em>steward</em> - after which it could create its own within an existing accessible <em>namespace</em>.</p>
-
+</span>
 </ol>
 
 <hr size="1">
 
 <p class="footnote">This document has been gradually expanded (in various stages between 2020-06-28 and 2020-08-06 by <a href="https://github.com/jethro-swan/">John Waters</a>) from <a href="https://paper.dropbox.com/doc/openmoney-specifications--A2ueQsb5n1iIn0oDC6yCjCFjAg-ZCwb9XOtbLSwZxrlnb5tR">the earlier specification</a> (written by Dominique Legault and Michael Linton) in order to incorporate additional notes, annotations, etc.</p>
+
+<hr size="1">
+
+<p>A <a href="https://github.com/openmoney/current-implementation/">testing/demonstration implementation</a> to illustrate core principles was written by <a href="https://github.com/deefactorial/">Dominique Legault</a>, who also wrote the <a href="https://paper.dropbox.com/doc/openmoney-specifications--A2ueQsb5n1iIn0oDC6yCjCFjAg-ZCwb9XOtbLSwZxrlnb5tR">original draft</a> of this specification in collaboration with Michael Linton.</p>
+
+<br />
+
+<hr size="1">
 
 <p class="footnote">[The <a href="https://github.com/openmoney/specification/">source</a> for this page.]</p>
 
