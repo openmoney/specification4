@@ -53,44 +53,21 @@
 
 <h3>Introduction</h3>
 
-<p>The term <em>open money</em> (two words, lower case) is an aspect of free speech - it is a context (see <a href="https://sites.google.com/site/economicgroups/neweconomy">REA</a>), and <em>open money</em> can be called <u>free</u> money (as in <em>free speech</em>, not as in free beer/lunch/load/ride).</p>
+<p>The term <em>openmoney</em> refers to any software supporting <a href="#open_money"><em>open money</em></a>. The following is a minimal specification of the way in which any such software should operate.</p>
 
-<p>The term <em>openmoney</em> (one word, lower case) refers to <u>any</u> software able to support the requirements of an <em>open money</em> implementation, operating in accordance with the principles and intellectual properties of the <a href="http://letsystem.org/">LETSystem Trust</a>.</p>
+<p><u>Note</u>: Although originally designed to support user-centred ledger systems (LETSystem model), a sufficiently secure implementation of software conforming to this specification could be be used as the ledger system underpinning <u>any ledger-based</u> service, including mutual credit services (such as <em>LETSystems</em>), loan-providing services (such as credit unions and CDFIs), energy-accounting systems, time banks or any other conceivable system recording events associated with resources and agents.</p>
 
-<p>For background information and history, see the <a href="https://openmoney.github.io/openmoney-links/">collected links</a> page.</p>
-
-<p>An <a href="https://github.com/openmoney/">openmoney</a> implementation is already freely available on line for test and demonstration purposes, and more will follow.</p>
-
-<p>NB, <em>open money</em> is a special case of a broader concept: <em>open metrics</em>. The specification below generally applies to <em>open metrics</em> implementations as well.</p>
-
-<p>The following is a minimal specification of the way in which any software supporting <em>open money</em> should operate.</p>
-
-<p class="added"><u>Note</u>: Although originally designed to support user-centred ledger systems (LETSystem model), a sufficiently secure implementation of software conforming to this specification could be be used as the ledger system underpinning <u>any ledger-based</u> service, including mutual credit services (such as <em>LETSystems</em>), loan-providing services (such as credit unions and CDFIs), energy-accounting systems, time banks or any other conceivable system recording events associated with resources and agents.</p>
-
-<p class="added">The <em>openmoney</em> component is not intended to be complete and self-contained. Metasystemic components, whether technological, social or organizational, are required for any such tools to operate. Adaptive, resilient, co-evolving systems necessarily involve layers and appropriate extensions, with structure reviewed continually. The <em>openmoney</em> component is intended only to provide a recursively-nested ledge structure for REA accounting upon which much richer structures can be built.</p>
-
-<br />
+<p>The <em>openmoney</em> component is not intended to be complete and self-contained. Metasystemic components, whether technological, social or organizational, are required for any such tools to operate. Adaptive, resilient, co-evolving systems necessarily involve layers and appropriate extensions, with structure reviewed continually. The <em>openmoney</em> component is intended only to provide a recursively-nested ledge structure for REA accounting upon which much richer structures can be built.</p>
 
 <hr />
 
-<ul>
-
-<li><p><strong>Terminology</strong>: Since every <em><a href="#users">user</a></em> of an <em>openmoney</em> software has the potentiality to be a <em><a href="#stewards">steward</a></em>, no distinction was made between these terms in earlier versions of this document. For the same reasons, the <a href="https://github.com/openmoney/current-implementation/">testing/demonstration implementation</a> of the software treats all users with a login accounts as <em><a href="#stewards">stewards</a></em>.</p></li>
-
-<li><p><strong>Pronouns</strong>: Since a <em><a href="#users">user</a></em> may be a person or an organization, or possibly a machine, the gender-neutral <em>it</em> and <em>its</em> are used below.</p></li>
-
-</ul>
-
-<hr />
-
-<p class="added">
+<p>
   <u>Note</u>: <em>There is no obvious natural sequence in which the terms in this section can be defined. Most terms refer forward or back to other terms in the section.</em>
 </p>
 
-<a name="registries"></a>
-<h3 class="added">registry</h3>
+<h3 id="registries">registry</h3>
 
-<ul class="added">
+<ul>
   <li>
     <p>A <em><a href="#registries">registry</a></em> is an instance of any <em>openmoney</em>-compliant software with/in which a <em><a href="#users">user</a></em>'s <em>primary identity</em> can be registered.
     </p>
@@ -107,8 +84,15 @@
   </li>
 </ul>
 
-<a name="users"></a>
-<h3>users</h3>
+<h3 id="users">users</h3>
+
+<p>
+  <u>Terminology</u>: Since every <em><a href="#users">user</a></em> of an <em>openmoney</em> software has the potentiality to be a <em><a href="#stewards">steward</a></em>, no distinction was made between these terms in earlier versions of this document. For the same reasons, the <a href="https://github.com/openmoney/current-implementation/">testing/demonstration implementation</a> of the software treats all users with a login accounts as <em><a href="#stewards">stewards</a></em>.
+</p>
+
+<p>
+  <u>Pronouns</u>: Since a <em><a href="#users">user</a></em> may be a person or an organization, or possibly a machine, the gender-neutral <em>it</em> and <em>its</em> are used below.
+</p>
 
 <ul>
   <li>
@@ -165,8 +149,7 @@
   </li>
 </ul>
 
-<a name="stewards"></a>
-<h3>stewards</h3>
+<h3 id="stewards">stewards</h3>
 
 <ul>
   <li>
@@ -193,8 +176,7 @@
   </li>
 </ul>
 
-<a name="namespaces"></a>
-<h3>namespaces</h3>
+<h3 id="namespaces">namespaces</h3>
 
 <h4>namespaces enclosed entirely within one registry namespace</h4>
 
@@ -269,8 +251,6 @@
   </li>
 </ul>
 
-<span class="added">
-
 <h4>extending namespaces beyond a single registry namespace</h4>
 
 <ul>
@@ -289,10 +269,7 @@
   </li>
 </ul>
 
-</span>
-
-<a name="currencies"></a>
-<h3>currencies</h3>
+<h3 id="currencies">currencies</h3>
 
 <ul>
   <li>
@@ -329,8 +306,7 @@
   </li>
 </ul>
 
-<a name="accounts"></a>
-<h3>accounts</h3>
+<h3 id="accounts">accounts</h3>
 
 <ul>
   <li>
@@ -345,8 +321,7 @@
   </li>
 </ul>
 
-<a name="journals"></a>
-<h3>journals</h3>
+<h3 id="journals">journals</h3>
 
 <ul>
   <li>
@@ -554,7 +529,7 @@
     <td></td>
     <td></td>
   </tr>
-<table>
+</table>
 
 <p>
   <strong>More on terminology</strong>
@@ -696,7 +671,21 @@
 <ol>
 
   <li>
-    <h4>Implementation</h4>
+    <h4 id="open_money">open money</h4>
+
+    <p>The term <em>open money</em> (two words, lower case) is an aspect of free speech - it is a context (see <a href="https://sites.google.com/site/economicgroups/neweconomy">REA</a>), and <em>open money</em> can be called <u>free</u> money (as in <em>free speech</em>, not as in free beer/lunch/load/ride).</p>
+
+    <p>The term <em>openmoney</em> (one word, lower case) refers to <u>any</u> software able to support the requirements of an <em>open money</em> implementation, operating in accordance with the principles and intellectual properties of the <a href="http://letsystem.org/">LETSystem Trust</a>.</p>
+
+    <p>For background information and history, see the <a href="https://openmoney.github.io/openmoney-links/">collected links</a> page.</p>
+
+    <p>NB, <em>open money</em> is a special case of a broader concept: <em>open metrics</em>. The specification below generally applies to <em>open metrics</em> implementations as well.</p>
+
+
+  </li>
+
+  <li>
+    <h4 id="implementation">implementation</h4>
 
     <p>
       At the time of the most recent update (see date below), the <a href="https://github.com/openmoney/specification4/blob/master/API_specifications/Swagger_v2.0/swagger.yaml">original Swagger 2.0 API definition</a> is being updated and extended to create an OpenAPI 3.0 API definition. That will then be used to create a new set of consistent client and server stubs.
@@ -708,7 +697,15 @@
   </li>
 
   <li>
-    <h4>Collision-Resistant Names</h4>
+    <h4>reference prototypes</h4>
+
+    <p>
+      A minimal <a href="https://github.com/openmoney/current-implementation/">testing/demonstration implementation</a> to illustrate and explore core principles was written by <a href="https://github.com/deefactorial/">Dominique Legault</a>, who also wrote the <a href="https://paper.dropbox.com/doc/openmoney-specifications--A2ueQsb5n1iIn0oDC6yCjCFjAg-ZCwb9XOtbLSwZxrlnb5tR">original draft</a> of this specification in collaboration with Michael Linton.
+    </p>
+  </li>
+
+  <li>
+    <h4>collision-resistant names</h4>
 
     <p>From <a href="https://tools.ietf.org/html/rfc7519">https://tools.ietf.org/html/rfc7519</a>:
 
@@ -717,19 +714,11 @@
     </p>
   </li>
 
-  <li>
-    <h4>Reference prototypes</h4>
-
-    <p>
-      A minimal <a href="https://github.com/openmoney/current-implementation/">testing/demonstration implementation</a> to illustrate and explore core principles was written by <a href="https://github.com/deefactorial/">Dominique Legault</a>, who also wrote the <a href="https://paper.dropbox.com/doc/openmoney-specifications--A2ueQsb5n1iIn0oDC6yCjCFjAg-ZCwb9XOtbLSwZxrlnb5tR">original draft</a> of this specification in collaboration with Michael Linton.
-    </p>
-  </li>
-
 </ol>
 
 <hr />
 
-<p class="footnote">Version 2.0.5 [<a href="https://openmoney.github.io/specification">Previous numbered version</a>]</p>
+<p class="footnote">Version 2.0.51 [<a href="https://openmoney.github.io/specification">Previous numbered version</a>]</p>
 
 <p class="footnote">
   This document has been gradually expanded (in various stages between 2020-06-28 and 2020-08-14 by <a href="https://github.com/jethro-swan/">John Waters</a>) from <a href="https://paper.dropbox.com/doc/openmoney-specifications--A2ueQsb5n1iIn0oDC6yCjCFjAg-ZCwb9XOtbLSwZxrlnb5tR">the earlier specification</a> (written by Dominique Legault and Michael Linton) in order to incorporate additional notes, annotations, etc.
