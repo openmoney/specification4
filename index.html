@@ -55,9 +55,9 @@
 
 <p>The term <em>openmoney</em> refers to any software supporting <a href="#open_money"><em>open money</em></a>. The following is a minimal specification of the way in which any such software should operate.</p>
 
-<p><u>Note</u>: Although originally designed to support user-centred ledger systems (LETSystem model), a sufficiently secure implementation of software conforming to this specification could be be used as the ledger system underpinning <u>any ledger-based</u> service, including mutual credit services (such as <em>LETSystems</em>), loan-providing services (such as credit unions and CDFIs), energy-accounting systems, time banks or any other conceivable system recording events associated with resources and agents.</p>
-
 <p>The <em>openmoney</em> component is not intended to be complete and self-contained. Metasystemic components, whether technological, social or organizational, are required for any such tools to operate. Adaptive, resilient, co-evolving systems necessarily involve layers and appropriate extensions, with structure reviewed continually. The <em>openmoney</em> component is intended only to provide a recursively-nested ledge structure for REA accounting upon which much richer structures can be built.</p>
+
+<br />
 
 <hr />
 
@@ -77,11 +77,6 @@
       A <em><a href="#namespaces">namespace</a></em> enclosing all <em><a href="#namespaces">namespaces</a></em> associated directly with <em><a href="#users">users</a></em> with <em>primary identities</em> registered in that <em><a href="#registries">registry</a></em> is its <em>registry namespace</em>.
     </p>
   </li>
-  <li>
-    <p>
-      A <em><a href="#users">user</a></em> may have any number of <em>secondary identities</em> in any permitted/accessible <em><a href="#namespaces">namespace</a></em>, whether or not that lies within the same <em>registry namespace</em>.
-    </p>
-  </li>
 </ul>
 
 <h3 id="users">users</h3>
@@ -94,8 +89,12 @@
   <u>Pronouns</u>: Since a <em><a href="#users">user</a></em> may be a person or an organization, or possibly a machine, the gender-neutral <em>it</em> and <em>its</em> are used below.
 </p>
 
+<h4 id="primary_identity">primary identity</h4>
 <ul>
   <li>
+    <p>
+      This is the <a href="#users">user</a>'s primary identity as recorded uniquely in the <a href="#registries">registry</a>.
+    </p>
     <p>
       A registered <em><a href="#users">user</a></em> of any <em>openmoney</em> software can be any person or organization of persons that <u>recognizes</u> and <u>accepts responsibility</u> for:
       <ul>
@@ -113,10 +112,7 @@
   </li>
   <li>
     <p>
-      Every <em><a href="#users">user</a></em> has a <em>username</em>, and a public key.
-    </p>
-    <p>
-      (In the current <a href="https://github.com/openmoney/current-implementation/">test/development implementation</a> the <em><a href="#users">user</a></em> logs in using a password instead.
+      Every <em><a href="#users">user</a></em> has a <em>username</em>, and a public key [<a href="reference_prototype">*</a>].
     </p>
   </li>
   <li>
@@ -149,7 +145,22 @@
   </li>
 </ul>
 
-<h3 id="stewards">stewards</h3>
+<h4 id="secondary_identity">secondary identity</h4>
+
+<ul>
+  <li>
+    <p>
+      A <em><a href="#users">user</a></em> may have any number of <em>secondary identities</em> in any permitted/accessible <em><a href="#namespaces">namespace</a></em>, whether or not that lies within the same <em>registry namespace</em>.
+    </p>
+  </li>
+  <li>
+    <p>
+      Each <a href="#secondary_identity">secondary identity</a> can be identified uniquely by any <a href="#names">name</a> not already used in that <a href="#namespace">namespace</a>.
+    </p>
+  </li>
+</ul>
+
+<h4 id="stewards">stewards</h4>
 
 <ul>
   <li>
@@ -685,6 +696,12 @@
   </li>
 
   <li>
+    <h4>wider applicatiions</h4>
+
+    <p><u>Note</u>: Although originally designed to support user-centred ledger systems (LETSystem model), a sufficiently secure implementation of software conforming to this specification could be be used as the ledger system underpinning <u>any ledger-based</u> service, including mutual credit services (such as <em>LETSystems</em>), loan-providing services (such as credit unions and CDFIs), energy-accounting systems, time banks or any other conceivable system recording events associated with resources and agents.</p>
+  </li>
+
+  <li>
     <h4 id="implementation">implementation</h4>
 
     <p>
@@ -692,12 +709,13 @@
     </p>
 
     <p>
-
+      * In the current <a href="https://github.com/openmoney/current-implementation/">test/development implementation</a> the <em><a href="#users">user</a></em> logs in using a password instead.
     </p>
+
   </li>
 
   <li>
-    <h4>reference prototypes</h4>
+    <h4 id="reference_prototype">reference prototypes</h4>
 
     <p>
       A minimal <a href="https://github.com/openmoney/current-implementation/">testing/demonstration implementation</a> to illustrate and explore core principles was written by <a href="https://github.com/deefactorial/">Dominique Legault</a>, who also wrote the <a href="https://paper.dropbox.com/doc/openmoney-specifications--A2ueQsb5n1iIn0oDC6yCjCFjAg-ZCwb9XOtbLSwZxrlnb5tR">original draft</a> of this specification in collaboration with Michael Linton.
