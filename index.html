@@ -174,7 +174,6 @@
 </ul>
 
 <h3 id="namespace">namespaces</h3>
-
 <h4>namespaces enclosed entirely within one registry namespace</h4>
 <p>
   This section refers only to <em><a href="#namespace">namespaces</a></em> enclosed within the same <em>registry namespace</em>.
@@ -245,7 +244,6 @@
     </p>
   </li>
 </ul>
-
 <h4>extending namespaces beyond a single registry namespace</h4>
 <ul>
   <li>
@@ -260,6 +258,40 @@
 
 <h3 id="currency">currencies</h3>
 <ul>
+  <li>
+    <p class="added">
+      A <em><a href="#currency">currency</a></em> is a <em>specification</em> of the properties of a <em>variable</em> held in an <a href="#account">account</a> and of the <em>operations</em> that can be performed upon variables conforming to that specification.
+      <ul>
+        <li>
+          <p class="added">
+            A <em><a href="#currency">currency</a></em>'s <em>specification</em> is derived (as a subset) or extended from (as a superset) of a <em><a href="#currency_definition_prototype">currency definition prototype</a></em> by the <em><a href="#steward">steward</a>(s) governing </em> that <em><a href="#currency">currency</a></em>.
+          </p>
+        </li>
+        <li>
+          <p class="added">
+            The most common type of variable is a <em>scalar</em>.
+            <ul>
+              <li>
+                <p class="added" id="money">
+                  <em>money</em>: For any implementation meeting the requirements of an <em><a href="#open_money">open money</a> service</em> the only operations required or permitted are addition and subtraction performed simultaneously and by an equal amount on two accounts. For this purpose a currency type named "money" is defined. This is the <u>default type</u>.
+                </p>
+              </li>
+              <li>
+                <p class="added" id="other_scalar_types">
+                  <em>other scalar types</em>: For other <em>scalar</em> types, additional operations (including but not limited to multiplication and division) may be permitted. These types are beyond the scope of this specification and will be covered in a supplementary document.
+                </p>
+              </li>
+            </ul>
+          </p>
+        </li>
+        <li>
+          <p class="added" id="compound types">
+            <em>Compound types</em> (such as tuples, vectors, matrices and nested structures) and the operations permitted upon them are beyond the scope of this specification and will be covered in a supplementary document.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </li>
   <li>
     <p> A <em><a href="#currency">currency</a></em> has a <em>currency name</em>, a <em>parent namespace</em>, and a set of zero or more <em>governing stewards</em>.
     </p>

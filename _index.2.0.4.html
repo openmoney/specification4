@@ -1,0 +1,457 @@
+<html>
+
+<head>
+
+<title>openmoney software specification</title>
+
+<style type="text/css">
+
+    body, div, p, h1, h2, h3, a, li { font-family: Lucida Grande,Verdana,Helvetica,Arial,sans-serif; }
+    body { font-size: 14px; }
+
+    .footnote { font-size: 12px; }
+
+    .deleted { color: #000080; text-decoration: line-through; }
+    .added { color: #800000; }
+    .moved { color: #600060; }
+
+    td { font-size: 14px; background: #E0F0E0; }
+    td.col-label { color: #E0E0F0; font-weight: bold; background: #004000; }
+    td.row-label { color: #E0E0F0; font-weight: bold; background: #004000; }
+    td.row-notes { color: #E0E0F0; bold; background: #004000; font-size: 12px; }
+    td.blank { font-size: 12px; background: #FFFFFF; }
+
+    a { text-decoration:none; }
+    a:link { color:#006000; }
+    a:visited { color:#106010; }
+    a:active { color:#008000; }
+    a:hover { color:#209020; }
+
+    h1 { font-size: 28px; font-weight: bold; color: #008000; }
+    h2 { font-size: 24px; font-weight: bold; color: #008000; }
+    h3 { font-size: 20px; font-weight: bold; color: #008000; }
+    h4 { font-size: 16px; font-weight: bold; color: #008000; }
+    p { margin-bottom: 0; }
+    ul { margin-top: 0; }
+
+    img { display: block; }
+    img.wrap { max-width: 70%; margin: 30px 0px; }
+    img.align-right-middle { float:right; padding:30px; vertical-valign:middle; }
+    img.align-left { float:left; padding:20px; text-align:left; }
+    img.align-left-middle { float:left; padding:30px; vertical-valign:middle; }
+
+</style>
+
+</head>
+
+<body>
+
+<h1>openmoney software specification</h1>
+
+<hr size="1">
+
+<h3>Introduction</h3>
+
+<p>The term <em>open money</em> (two words, lower case) is an aspect of free speech - it is a context (see <a href="https://sites.google.com/site/economicgroups/neweconomy">REA</a>), and <em>open money</em> can be called <u>free</u> money (as in <em>free speech</em>, not as in free beer/lunch/load/ride).</p>
+
+<p>The term <em>openmoney</em> (one word, lower case) refers to <u>any</u> software able to support the requirements of an <em>open money</em> implementation, operating in accordance with the principles and intellectual properties of the <a href="http://letsystem.org/">LETSystem Trust</a>.</p>
+
+<p>For background information and history, see the <a href="https://openmoney.github.io/openmoney-links/">collected links</a> page.</p>
+
+<p>An <a href="https://github.com/openmoney/">openmoney</a> implementation is already freely available on line for test and demonstration purposes, and more will follow.</p>
+
+<p>NB, <em>open money</em> is a special case of a broader concept: <em>open metrics</em>. The specification below generally applies to <em>open metrics</em> implementations as well.</p>
+
+<p>The following is a minimal specification of the way in which any software supporting <em>open money</em> should operate.</p>
+
+<p>A <a href="https://github.com/openmoney/current-implementation/">testing/demonstration implementation</a> was written by <a href="https://github.com/deefactorial/">Dominique Legault</a>, who also wrote the <a href="https://paper.dropbox.com/doc/openmoney-specifications--A2ueQsb5n1iIn0oDC6yCjCFjAg-ZCwb9XOtbLSwZxrlnb5tR">original draft</a> of this specification in collaboration with Michael Linton.</p>
+
+<hr size="1">
+
+<ul>
+
+<li><p><strong>Terminology</strong>: Since every <em>user</em> of an <em>openmoney</em> software has the potentiality to be a <em>steward</em>, no distinction was made between these terms in earlier versions of this document. For the same reasons, the <a href="https://github.com/openmoney/current-implementation/">testing/demonstration implementation</a> of the software treats all users with a login accounts as <em>stewards</em>.</p></li>
+
+<li><p><strong>Pronouns</strong>: Since a <em>user</em> may be a person or an organization, or possibly a machine, the gender-neutral <em>it</em> and <em>its</em> are used below.</p></li>
+
+</ul>
+
+<hr size="1">
+
+<h3>users</h3>
+
+<ul>
+
+<li><p>A registered <em>user</em> of any <em>openmoney</em> software can be any person or organization of persons that <u>recognizes</u> and <u>accepts responsibility</u> for:<ul>
+  <li><u>accounting of events</u></li>
+  <li><u>fulfilment of promises</u> (commitments)</li>
+  </ul></p>
+
+<p>To use <em>open money</em> is to mind your own business.</p></li>
+
+<li><p>Every <em>user</em> has a <em>username</em>, and a public key.</p>
+
+<p>(In the current <a href="https://github.com/openmoney/current-implementation/">test/development implementation</a> the <em>user</em> logs in using a password instead.)</p>
+</li>
+
+<li><p>A <em>user</em> may optionally provide an email address and choose its notification settings.</p></li>
+
+<li><p>A <em>user</em> uses its <em>username</em> and private key to authenticate.</p></li>
+
+<li><p>The <em>openmoney</em> implementation may make provision for the <em>user</em>'s public and private key to be generated deterministically using its <em>name</em> and password.</p></li>
+
+<li><p>When a <em>user</em> registers, it is given a private <em>namespace</em> with the <em>namespace</em> name "<em>username</em>" as a child of the one of the <em>root namespace</em> available.</p>
+
+<p>(In the <a href="https://github.com/openmoney/current-implementation/">current demonstration/test implementation</a>, the only <em>root namespace</em> available is fixed as "cc" so every <em>user</em> is given the <em>namespace</em> "<em>username.cc</em>" upon registration.)</p></li>
+
+<li><p>Once registered, a <em>user</em> may join any number of <em>namespaces</em> (subject to the permission if those <em>namespace</em>s' <em>stewards</em>) under any <em>name</em> not already used within that <em>namespace</em>.</p></li>
+
+</ul>
+
+<h3>stewards</h3>
+
+<ul>
+
+<li><p>A <em>user</em> with responsibility for a <em>namespace</em> is referred to as a <em>steward</em> <u>of</u> that <em>namespace</em> or, alternatively, as a <em>governor</em> or <em>governing steward</em> of that <em>namespace</em>.</p>
+
+<li><p>A <em>user</em> with responsibility for a <em>currency</em> is referred to as a <em>steward</em> <u>of</u> that <em>currency</em> or, alternatively, as a <em>governor</em> or <em>governing steward</em> of that <em>currency</em>.</p>
+
+<li><p>A <em>user</em> with responsibility for an <em>account</em> is referred to as a <em>steward</em> of that <em>account</em>.</p>
+
+<p>The <em>steward</em> of a <em>namespaces</em> has unconditional privileges over that <em>namespace</em> and any <em>namespaces</em>, <em>currencies</em>, <em>accounts</em> and <em>users</em> within it.</p>
+
+<p>Within a <em>(parent) namespace</em> a <em>user</em> is authorized only to create <em>names</em> (<em>namespaces</em>, <em>currencies</em> and <em>accounts</em>), of which it is the <em>steward</em>, and these persist only as long as authorized by the <em>stewards</em> (<em>governors</em>) of the <em>(parent) namespace</em>.</p>
+
+</ul>
+
+<h3>namespaces</h3>
+
+<ul>
+
+<p>Every <em>namespace</em> is managed (controlled) by a set of one or more <em>steward</em>(s).</p>
+
+<li><p>A <em>namespace</em> is an enclosure.</p></li>
+
+<li><p>Every <em>namespace</em> can enclose other <em>namespaces</em>.</p>
+
+<li><p>Every <em>namespace</em> can also enclose a set of <em>currencies</em> or <em>accounts</em> under the control of that <em>namespace</em>'s <em>governing stewards</em>(s) - i.e.<ul>
+    <li><em>currency</em> parameters are declared by that/those <em>governing stewards</em>(s)</li>
+    <li>access/usage terms are set by that/those <em>governing stewards</em>(s)</li>
+    </ul></p></li>
+
+<li><p>Each <em>namespace</em> is identified by a string divided into substrings (<em>namespace names</em>, in each case a lower case letter followed by a string of arbitrary length containing any combinatation of lower case letters, digits, "_" or "-") separated by the character ".". Therefore, with the exception of the <em>root namespace</em>, each <em>namespace</em> comprises at least two parts - <em>child.parent</em> - where the latter identified by its full ancestry "path" back to the <em>root namespace</em>) and is therefore globally unique [note 1]. For example, the following examples represent two different <em>namespaces</em>:<br />
+&nbsp;&nbsp;<em>berkshire.england.uk.europe</em><br />
+&nbsp;&nbsp;<em>berkshire.massachussets.usa.north.america</em><br />
+where both have the same <em>namespace name</em> at the start of the string but each has a different <em>parent namespace</em>.</p></li>
+
+<li><p>Every <em>governing steward</em> of a <em>namespace</em> is notified when any of its other <em>stewards</em> creates a child <em>namespace</em>, <em>currency</em> or <em>account</em> there.</p></li>
+
+<li><p>Every <em>governing steward</em> of a <em>namespace</em> has the ability to <u>enable</u> or <u>disable</u> any of its child <em>namespaces</em>, <em>currencies</em> or <em>accounts</em>.</p></li>
+
+<li><p>Every <em>steward</em> of a <em>namespace</em> has the ability to <u>close</u> child <em>namespaces</em>, <em>currencies</em> or <em>accounts</em> in their <em>namespace</em> and then <u>create</u> their continuations (<em>namespaces</em>, <em>currencies</em> or <em>accounts</em> having exactly the same properties and values) in another (accessible) <em>namespace</em>. This is, in effect, equivalent to moving these safely in a way which does not lead to confusing inconsistencies in the <em>journal</em> entries.</p></li>
+
+<li><p>A <em>namespace</em> can be <u>public</u> or <u>private</u>:<ul>
+<li>When created, a child <em>namespace</em>, <em>currency</em> or <em>account</em> of a <u>public</u> <em>namespace</em> is <u>disabled by default</u>.</li>
+<li>A child <em>namespace</em>, <em>currency</em> or <em>account</em> of a <u>private</u> <em>namespace</em> is <u>disabled by default</u> and <u>cannot be enabled</u> until the <em>parent namespace</em> has been enabled.</li>
+</ul></p></li>
+
+</ul>
+
+<h3>currencies</h3>
+
+<ul>
+
+<li><p>A <em>currency</em> has a <em>currency name</em>, a <em>parent namespace</em>, and a set of zero or more <em>governing stewards</em>.</p></li>
+
+<li><p>Every <em>governing steward</em> of a <em>currency</em> is notified whenever any <em>steward</em> creates an account that uses this <em>currency</em>.</p></li>
+
+<li><p>Every <em>governing steward</em> of a <em>currency</em> has the ability to enable or disable <em>accounts</em> used by this <em>currency</em>.</p></li>
+
+<li><p>Every <em>governing steward</em> of a <em>currency</em> gets a copy of all journal entries that use that <em>currency</em>.</p></li>
+
+<li><p>A <em>currency</em> can be <em>public</em> or <em>private</em>:<ul>
+<li>an <em>account</em> created to use a <em><u>public</u> currency</em> is <u>enabled by default</u>.</li>
+<li>an <em>account</em> created to use a <em><u>private</u> currency</em> is <u>disabled by default</u>.</li>
+</ul></li>
+
+</ul>
+
+<h3>accounts</h3>
+
+<ul>
+
+<li><p>An <em>account</em> has an <em>account name</em>, an <em>account parent namespace</em>, a <em>currency</em>, a <em>currency parent namespace</em> and a set of <em>governing stewards</em>.</p></li>
+
+<li><p>Account <em>stewards</em> post <em>journal <u>entries</u></em> from one <em>account</em> to another <em>account</em> in the same <em>currency</em>.</p>
+</li>
+
+</ul>
+
+<h3>journals</h3>
+
+<ul>
+
+<li><p>A <em>journal entry</em> containing<ul>
+  <li>a <em><u>to</u> account name</em></li>
+  <li>a <em><u>to</u> account namespace</em></li>
+  <li>a <em><u>from</u> account name</em></li>
+  <li>a <em><u>from</u> account namespace</em></li>
+  <li>a <em>currency name</em></li>
+  <li>a <em>currency namespace</em></li>
+  <li>an <em>amount</em>.</li>
+</ul>is sent from the client to the server.</p>
+
+<p><u>If</u> the server is able to verify that the <em>namespaces</em>, <em>currencies</em> and <em>accounts</em> specified in the <em>journal entry</em> are all enabled, <u>then</u>:<ul>
+    <li>the <em>journal entry</em> is encrypted using the public keys belonging to the <em><u>to</u> account</em>'s <em>steward</em>, the <em><u>from</u> account</em>'s <em>steward</em> and <em>currency</em>'s <em>governing steward</em>;</li>
+<li>the encrypted <em>journal entry</em> is stored on the server for their retrieval;</li>
+<li>the <em>stewards</em> are notified (according to their configured preferences); and</li>
+<li>a <u>success response code</u> is returned to the client.</li>
+</ul><u>otherwise</u>:<ul>
+<li>an <u>error response code</u> is returned to the client indicating where the point of failure lies (in most cases where an <em>accounts</em>, <em>currency</em> or <em>namespaces</em> is disabled or nonexistent).</li>
+</ul>
+
+<li><p>A <em>governing steward</em> of an <em>account</em> can request a list of all <em>journal entries</em> for transactions to or from that <em>account</em>.</p> </li>
+
+<li><p>A <em>governing steward</em> of a <em>currency</em> can request a list of all <em>journal entries</em> for transactions in that <em>currency</em>.</p></li>
+
+<li><p>Any <em>governing steward</em> of a <em>currency</em> has the ability to void a <em>journal</em> entry by posting a <em>reversing journal entry</em> on behalf of both parties.</p></li>
+
+</p></li>
+
+</ul>
+
+<br />
+
+<hr size="1">
+
+<table border="0" cellpadding="5" cellspacing="2" width="100%">
+    <tr align="left" valign="top">
+        <td rowspan="3" class="blank" valign="bottom"><em>names</em> are reserved within a <em>parent namespace</em> for the four categories below:</td>
+        <td class="col-label" colspan="4" align="center">class of <em>steward</em> (as recognized within a particular <em>namespace</em>)</td>
+        <!-- -->
+        <!-- -->
+        <!-- -->
+    </tr>
+    <tr valign="top" align="center">
+        <!-- -->
+        <td class="col-label">governing steward</td>
+        <td class="col-label">permitted user of space</td>
+        <td class="col-label">part user</td>
+        <td class="col-label">audit user</td>
+    </tr>
+    <tr align="left" valign="top">
+        <!-- -->
+        <td class="row-notes">A <em>steward</em> with governance privileges on this <em>namespace</em>.</td>
+        <td class="row-notes">A <em>steward</em> with normal access rights granted conditionally by a <em>governance steward</em> of this <em>namespace</em>.</td>
+        <td class="row-notes">A <em>steward</em> with restricted access rights granted conditionally by a <em>governance steward</em> of this <em>namespace</em>.</td>
+        <td class="row-notes">A <em>steward</em> with monitoring/audit privileges granted conditionally by a <em>governance steward</em> of this <em>namespace</em>.</td>
+    </tr>
+    <!-- namespaces -->
+    <tr align="left" valign="top">
+        <td width="8%" class="row-label" rowspan="4">namespaces</td>
+        <td width="23%">Set this <em>namespace</em> as <u>public</u>/<u>private</u></td>
+        <td width="23%">Create, own and govern <em>namespaces</em> within this <em>namespace</em> if authorized by a <em>governing steward</em>.</td>
+        <td width="23%"></td>
+        <td width="23%"></td>
+    </tr>
+    <tr align="left" valign="top">
+        <!-- -->
+        <td>Enable/disable transactions in this <em>namespace</em>.</td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr align="left" valign="top">
+        <!-- -->
+        <td>Admit/deny applications by other <em>stewards</em> to create new <em>namespaces</em> within this <em>namespace</em>.</td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr align="left" valign="top">
+        <!-- -->
+        <td>Enable, disable or delete <em>stewards</em> in this <em>namespace</em>.</td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <!-- currencies -->
+     <tr align="left" valign="top">
+        <td class="row-label" rowspan="4">currencies</td>
+        <td>Set <em>currencies</em> within this <em>namespace</em> as <u>public</u>/<u>private</u>.</td>
+        <td>Create, own and govern <em>currencies</em> within this <em>namespace</em>.</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr align="left" valign="top">
+        <!-- -->
+        <td>Enable/disable transactions using this <em>currency</em>.</td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr align="left" valign="top">
+        <!-- -->
+        <td>Admit/deny applications by other <em>stewards</em> to create <em>currencies</em> within this <em>namespace</em>.</td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr align="left" valign="top">
+        <!-- -->
+        <td>Enable, suspend or delete <em>users</em> of <em>currencies</em> <em>namespace</em>.</td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+   <!-- accounts -->
+    <tr align="left" valign="top">
+        <td class="row-label">accounts</td>
+        <td>Admit/deny applications by other <em>stewards</em> to create <em>accounts</em> within this <em>namespace</em>.</td>
+        <td>Create, own and govern <em>accounts</em> within this <em>namespace</em>.</td>
+        <td>Read <em>specified account</em> in this <em>namespace</em>.<br />
+            Write to <em>specified account</em> in this <em>namespace</em>.</td>
+        <td>Read <em>specified account</em> in this <em>namespace</em>.</td>
+    </tr>
+    <!-- -->
+    <tr align="left" valign="top">
+        <td class="row-label">(name:currency) pairs</td>
+        <td>Enable, suspend or delete <em>users</em> of <em>currencies</em> <em>namespace</em>.</td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+<table>
+
+<p><strong>More on terminology</strong></p>
+
+<p>The following terms are used below:<ul>
+
+<li><p>The term <em>named object</em> below refers to any <em>namespace</em>, <em>user</em>, <em>currency</em> or <em>account</em>.</p></li>
+
+<li><p>The term <em>parent</em> refers to the <em>namespace</em> in which any <em>named object</em> exists.</p></li>
+
+<li><p>The term <em>child namespace</em> refers and a <em>namespace</em> contained within another (the <em>parent namespace</em>).</p></li>
+
+<li><p>The term <em>grandparent parent</em> refers to the <em>namespace</em> in which the <em>parent</em> of any <em>named object</em> exists.</p></li>
+
+<li><p>The term <em>ancestor</em> refers to any level of nesting from <em>parent</em> upwards.</li>
+
+<li><p>The term <em>descendant</em> refers to any level of nesting from <em>child</em> downwards.</p></li>
+
+</ul></p>
+
+<p><strong>Configuration options</strong></p>
+
+<p>The following options are configured at the time of the initial setup according to policy:<ul>
+
+<li><p>Allow a <em>steward</em> of a <em>namespace</em> at any <em>ancestor level</em> than parent to move any <em>named object</em>.</p><p>Disabled by default.</p></li>
+
+<li><p>Allow a <em>steward</em> of a <em>namespace</em> at any <em>ancestor level</em> greater than parent to suspend or delete or (where enabled) move any named object.</p><p>Disabled by default.</p></li>
+
+<!--
+<li><p></p></li>
+
+<li><p></p></li>
+
+<li><p></p></li>
+
+<li><p></p></li>
+
+<li><p></p></li>
+
+<li><p></p></li>
+
+<li><p></p></li>
+-->
+</ul></p>
+
+<!--
+
+<br />
+-->
+
+<p style="clear:both"></p>
+
+<p><strong>relationships between named objects</strong></p>
+
+<img src="img/nesting_3_levels_4g.png" class="align-left-middle" width="1050" />
+
+<p style="clear:both"></p>
+
+<p><strong>recursive nesting of namespaces</strong></p>
+
+<p>The following diagram illustrates the recursive <em>namespace</em> structure.</p>
+
+<img src="img/nesting_4a.png" class="align-left-middle" width="600" />
+
+<p>Here the <em>namespaces</em> are labelled (untypically) in way convenient for identifying the depth of nesting from a <em>root namespace</em>.</p>
+
+<p>At the top is a set of <em>root namspaces</em> (labelled "a1", "a2" ...).</p>
+
+<p>Nested within these <em>namespaces</em> are more <em>namespaces</em> (labelled "b1.a1", "b2.a1", ... , "b3.a3", ...).</p>
+
+<p>And so on.</p>
+
+<p>This can be represented more compactly as a tree ...</p>
+
+<img src="img/nesting_4a_as_tree.png" class="align-left-middle" width="400" />
+
+<p style="clear:both"></p>
+
+<p> ... making it easier to visualize the recursive nesting of <em>registry namespaces</em>.</p>
+
+<img src="img/nesting_trees_1.png" class="align-left-middle" width="701" />
+
+
+
+<p style="clear:both"></p>
+
+<p style="clear:both"></p>
+
+<p style="clear:both"></p>
+
+
+<hr size="1">
+
+<h3>notes</h3>
+
+<ol>
+
+<li><h4>Collision-Resistant Names</h4>
+
+<p>From <a href="https://tools.ietf.org/html/rfc7519">https://tools.ietf.org/html/rfc7519</a>:
+
+<p>A name in a namespace that enables names to be allocated in a manner such that they are highly unlikely to collide with other names.  Examples of collision-resistant namespaces include: Domain Names, Object Identifiers (OIDs) as defined in the ITU-T X.660 and X.670 Recommendation series, and Universally Unique IDentifiers (UUIDs) [RFC4122].  When using an administratively delegated namespace, the definer of a name needs to take reasonable precautions to ensure they are in control of the portion of the namespace they use to define the name.</p></li>
+
+<li><h4>Stewards' names - unresolved problem</h4>
+
+<p>In general, a <em>namespace</em> collisions are avoided - e.g.<br />
+&nbsp;&nbsp;<em>paris.france.eu</em><br />
+is very different from<br />
+&nbsp;&nbsp;<em>paris.texas.usa</em><br />
+However, upon registration (currently) all <em>openmoney</em> <em>stewards</em> create a <em>stewardname</em> which is immediately put into the <em>root namespace</em>.
+
+<p>How can we avoid the sort of name collision problem encountered generally by later adopters of many services (such as Google or eBay) where, after trying a ridiculously large number of options username and finding that each has already been taken, they often end up having to accept accepting a horrendous autogenerated suggestion such as "fred3896"?</p>
+
+<p><strong>Automatic generation of, or allocation to, a namespace?</strong></p>
+
+<p>Maybe the initial <em>namespace</em> assigned to a new <em>steward</em> should be generated automatically from some additional details provided - such as town, county/state/whatever, country, continent, postcode/zip/whatever, etc. In this case, new <em>steward</em> "fred" would be competing against a much smaller numbre of other other <em>Fred</em>s, and would therefore experience less difficulty in finding an acceptable username if such a clash were to occur. This approach would also result in the automatic creation of useful geographical <em>namespaces</em> (where not already available).<p>
+
+<p>The retention of such information would raise GDPR issues anywhere in Europe, and perhaps similar issues in most other parts of the world. In this case, responsibility for maintaining the user's details could perhaps be delegated to a third party well set up for that purpose. For example, MailerLite's API is very easy to use and seems to provide everything that might be wanted to offload such a burden.)<p>
+
+<p>There is, however, no need to retain such information. An identifier comprising a short <em>stewardname</em> <u>as preferred</u> along with the <em>namespace</em></p> generated automatically from location details could entered at the time of registration.</p>
+
+<p>Alternatively, a completely random but unique initial <em>namespace</em> could be generated as a starting point for the new <em>steward</em> - after which it could create its own within an existing accessible <em>namespace</em>.</p>
+
+</ol>
+
+<hr size="1">
+
+<p class="footnote">This document has been gradually expanded (in various stages between 2020-06-28 and 2020-08-06 by <a href="https://github.com/jethro-swan/">John Waters</a>) from <a href="https://paper.dropbox.com/doc/openmoney-specifications--A2ueQsb5n1iIn0oDC6yCjCFjAg-ZCwb9XOtbLSwZxrlnb5tR">the earlier specification</a> (written by Dominique Legault and Michael Linton) in order to incorporate additional notes, annotations, etc.</p>
+
+<p class="footnote">[The <a href="https://github.com/openmoney/specification/">source</a> for this page.]</p>
+
+</body>
+
+</html>
